@@ -15,7 +15,7 @@ public class Magic8Ball {
     }
 
     public String getAnswer() {
-        return answer;
+        return this.answer;
     }
 
     public void setAnswer(String answer) {
@@ -23,7 +23,7 @@ public class Magic8Ball {
     }
 
     public String getQuestion() {
-        return question;
+        return this.question;
     }
 
     public void setQuestion(String question) {

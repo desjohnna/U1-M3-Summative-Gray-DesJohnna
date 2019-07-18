@@ -2,7 +2,6 @@ package com.company.Homework3;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -24,6 +23,7 @@ public class WebServiceController {
 
 
     public WebServiceController() {
+
         //Adding quotes and authors to list
         this.quotesList.add(new Quote("Don't cry because it's over, smile because it happened", "Dr. Seuss"));
         this.quotesList.add(new Quote("Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.", "Albert Einstein"));
@@ -75,9 +75,19 @@ public class WebServiceController {
 
     //Get random 8Ball answer
     @RequestMapping(value = "/magic", method = RequestMethod.GET)
-    public Magic8Ball ask8Ball(@RequestBody Magic8Ball Question) {
+    public Magic8Ball ask8Ball(@RequestBody String question) {
+
+        //creating a random number
         int x = random.nextInt(magic8BallList.size());
-        return magic8BallList.get(x) ;
+
+        //get the answer at the random number spot
+        this.magic8BallList.get(x).getAnswer();
+
+        //set the the question for the corresponding answer to the question variable being entered into the body.
+        this.magic8BallList.get(x).setQuestion(question);
+
+        
+        return this.magic8BallList.get(x);
 
     }
 
