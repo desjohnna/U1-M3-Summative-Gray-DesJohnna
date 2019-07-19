@@ -74,7 +74,7 @@ public class WebServiceController {
     }
 
     //Get random 8Ball answer
-    @RequestMapping(value = "/magic", method = RequestMethod.GET)
+    @RequestMapping(value = "/magic", method = RequestMethod.POST)
     public Magic8Ball ask8Ball(@RequestBody String question) {
 
         //creating a random number
@@ -86,7 +86,7 @@ public class WebServiceController {
         //set the the question for the corresponding answer to the question variable being entered into the body.
         this.magic8BallList.get(x).setQuestion(question);
 
-        
+
         return this.magic8BallList.get(x);
 
     }
